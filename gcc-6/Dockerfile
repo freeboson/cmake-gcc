@@ -14,7 +14,7 @@ RUN gpg --keyserver pgp.mit.edu --recv-keys ${CMAKE_SIG_KEY_FP} \
 
 RUN /bin/bash -c "pushd /tmp \
     && gpg --batch --verbose --verify cmake-${CMAKE_VERSION}-SHA-256.txt.asc cmake-${CMAKE_VERSION}-SHA-256.txt \
-    && sha256sum -c --ignore-missing cmake-${CMAKE_VERSION}-SHA-256.txt \
+    && (grep '-Linux-x86_64.sh$' cmake-${CMAKE_VERSION}-SHA-256.txt | sha256sum -c ) \
     && mkdir -p /opt/cmake \
     && sh cmake-${CMAKE_VERSION}-Linux-x86_64.sh --prefix=/opt/cmake --skip-license --exclude-subdir \
     && popd"
