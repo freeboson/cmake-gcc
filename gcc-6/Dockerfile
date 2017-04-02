@@ -4,9 +4,9 @@ ENV CMAKE_MINOR_VERSION 3.7
 ENV CMAKE_VERSION 3.7.2
 
 
-ADD https://cmake.org/files/v${CMAKE_MINOR_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh /tmp
-ADD https://cmake.org/files/v${CMAKE_MINOR_VERSION}/cmake-${CMAKE_VERSION}-SHA256.txt /tmp
-ADD https://cmake.org/files/v${CMAKE_MINOR_VERSION}/cmake-${CMAKE_VERSION}-SHA256.txt.asc /tmp
+ADD "https://cmake.org/files/v${CMAKE_MINOR_VERSION}/cmake-${CMAKE_VERSION}-Linux-x86_64.sh" /tmp
+ADD "https://cmake.org/files/v${CMAKE_MINOR_VERSION}/cmake-${CMAKE_VERSION}-SHA256.txt" /tmp
+ADD "https://cmake.org/files/v${CMAKE_MINOR_VERSION}/cmake-${CMAKE_VERSION}-SHA256.txt.asc" /tmp
 
 RUN gpg --keyserver pgp.mit.edu --recv-keys 4b9e84567bfb4eda
 
