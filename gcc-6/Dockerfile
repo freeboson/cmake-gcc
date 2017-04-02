@@ -10,10 +10,10 @@ ADD "https://cmake.org/files/v${CMAKE_MINOR_VERSION}/cmake-${CMAKE_VERSION}-SHA-
 
 RUN gpg --keyserver pgp.mit.edu --recv-keys 4b9e84567bfb4eda
 
-RUN pushd /tmp \
+RUN /bin/bash -c "pushd /tmp \
     && gpg --batch --verbose --verify cmake-${CMAKE_VERSION}-SHA-256.txt.asc cmake-${CMAKE_VERSION}-SHA-256.txt \
     && sha256sum -c --ignore-missing cmake-${CMAKE_VERSION}-SHA-256.txt \
     && mkdir -p /opt/cmake \
     && sh cmake-${CMAKE_VERSION}-Linux-x86_64.sh --prefix=/opt/cmake --skip-license --exclude-subdir \
-    && popd
+    && popd"
 
