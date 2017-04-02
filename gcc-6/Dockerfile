@@ -14,5 +14,6 @@ RUN pushd /tmp \
     && gpg --batch --verbose --verify cmake-${CMAKE_VERSION}-SHA-256.txt.asc cmake-${CMAKE_VERSION}-SHA-256.txt \
     && sha256sum -c --ignore-missing cmake-${CMAKE_VERSION}-SHA-256.txt \
     && mkdir -p /opt/cmake \
-    && sh cmake-${CMAKE_VERSION}-Linux-x86_64.sh --prefix=/opt/cmake --skip-license --exclude-subdir
+    && sh cmake-${CMAKE_VERSION}-Linux-x86_64.sh --prefix=/opt/cmake --skip-license --exclude-subdir \
+    && popd
 
